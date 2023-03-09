@@ -1,1 +1,0 @@
-# 2023-Yazilim-Gelistirici-Yetistirme-Kampi-Python-Selenium
