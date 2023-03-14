@@ -1,0 +1,95 @@
+print("\tÖğrenci Kayıt Sistemine hoşgeldiniz\t")
+
+students = ["ayten akten","ömer kal","ercan uçar"]
+
+def menu():
+    sec = int(input("\nLütfen yapmak istediğiniz işlemi seçiniz: \n"
+                "Öğrenci Ekle - 1: \n"
+                "Öğrenci Sil - 2: \n"
+                "Öğrencileri Listele - 3: \n"
+                "Öğrenci Numarası Öğrenme - 4: \n"
+                "Sistemi Kapat !- 5: "))
+    if sec == 1:
+        print("\nKayıt ekleme menüsüne yönlendiriliyorsunuz.")
+        addStudent()
+    elif sec == 2:
+        print("\nKayıt Silme menüsüne yönlendiriliyorsunuz.")
+        removeStudent()
+    elif sec == 3:
+        print("\nÖğrenciler listeleniyor...")
+        studentsList()
+    elif sec == 4:
+        print("\nÖğrenci Numarası öğrenme sayfasına gidiliyor...")
+        studentNum()
+    elif sec == 5:
+        print("\nSistemden cıkış yapılıyor....")
+        exıt()
+    else:
+         print("\nLütfen geçerli bir seçenek giriniz.")
+         menu()
+def addsStudent():
+        adds=input("\nEklemek istediğiniz öğrencilerin İsimlerini  ve soy isminlerini araya virgül koyarak giriniz:  ")
+        students.extend([adds])
+        print(students)
+def addStudent():
+    print(students)
+    add = input("\nEklemek istediğiniz öğrencinin İsim ve soy ismini giriniz: \n ")
+    students.append(add)
+    print(students)
+    def extAdd():
+        sec = int(input("\nDaha fazla ekleme işlemi yapmak için - 1:\n"
+                    "Devam etmek için - 2: \n"))
+        if sec == 1:
+          addsStudent()
+        elif sec == 2:
+            menu()
+        else:
+            print("\nLütfen geçerli bir seçenek giriniz.")
+            extAdd()
+    extAdd()
+    
+def removeStudent():
+    delete = int(input("\nBir öğrenci silmek için -1: \n""Devam etmek için - 2: \n"))
+    if delete ==1:
+        print(students)
+        remove =input("\nsilmek stediğiniz öğrencinin İsim ve soy ismini giriniz: \n ")
+        students.remove(remove)
+        print(students)
+        removeAdd()
+    else:
+        removeAdd()
+def removeAdd():
+    sec = int(input("\nDaha fazla silme işlemi yapmak için - 1:\n"
+                    "\nMenü için - 2: \n"))
+    if sec == 1:
+        a=int(input("\nkaç öğrenci silmek istersiniz "))
+        i=0
+        while i<a:
+            print(students)
+            name = input('\nöğrencinin kişi adı soyadı: ')
+            students.remove(name)
+            print(students)
+            removeAdd() 
+            i+=1
+            
+    elif sec == 2:
+        menu()
+    else:
+        print("\nLütfen geçerli bir seçenek giriniz.")
+        removeAdd() 
+    removeStudent()
+def studentsList():
+    print(students)
+    menu()
+def studentNum():
+    print(students)
+    num = input("\nNumarasını öğrenmek istediğiniz öğrencinin İsim ve soy ismini giriniz: \n ")
+    stunum = students.index(num)
+    print(f"{num} Öğrencinin numarası: {stunum} ")
+    menu()
+def exıt():
+    while True:
+        print("\nöğrenci kayıt sistemi kapatılıyor.")
+        break
+menu()
+ 
